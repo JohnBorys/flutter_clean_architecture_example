@@ -28,10 +28,13 @@ lib/bundler/man
 mkmf.log
 pkg/
 rdoc/
-Icov-2.0/
+lcov-2.0.tar.gz
+lcov-2.0/
 
 # Ignore test and temporary files
 spec/reports/
 test/tmp/
 test/version_tmp/
 tmp/
+
+settings.json
