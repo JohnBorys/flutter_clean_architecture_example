@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:flutter_clean_architecture_example/src/core/constants/constants.dart';
-import 'package:flutter_clean_architecture_example/src/core/error/exceptions.dart';
-import 'package:flutter_clean_architecture_example/src/core/utils/typedef.dart';
+import 'package:flutter_clean_architecture_example/core/constants/constants.dart';
+import 'package:flutter_clean_architecture_example/core/error/exceptions.dart';
+import 'package:flutter_clean_architecture_example/core/utils/typedef.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/data/models/user_model.dart';
 import 'package:http/http.dart' as http;
 

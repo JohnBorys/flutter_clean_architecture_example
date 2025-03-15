@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter_clean_architecture_example/src/features/users/data/models/user_model.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/entity/user.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_clean_architecture_example/src/core/utils/typedef.dart';
+import 'package:flutter_clean_architecture_example/core/utils/typedef.dart';
 
 import '../../../../../fixtures/fixture_reader.dart';
 

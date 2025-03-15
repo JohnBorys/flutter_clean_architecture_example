@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture_example/src/core/usecases/usecases.dart';
+import 'package:flutter_clean_architecture_example/core/usecases/usecases.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/data/data_sources/users_remote_data_source.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/data/repositories/users_repository_impl.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/repositories/users_repository.dart';

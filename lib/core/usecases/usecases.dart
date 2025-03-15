@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture_example/src/core/utils/typedef.dart';
+import 'package:flutter_clean_architecture_example/core/utils/typedef.dart';
 
 abstract class UsecasesWithParams<Type, Params> {
   const UsecasesWithParams();

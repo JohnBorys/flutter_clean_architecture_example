@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_clean_architecture_example/src/core/error/exceptions.dart';
-import 'package:flutter_clean_architecture_example/src/core/error/failure.dart';
+import 'package:flutter_clean_architecture_example/core/error/exceptions.dart';
+import 'package:flutter_clean_architecture_example/core/error/failure.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/data/data_sources/users_remote_data_source.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/data/repositories/users_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';

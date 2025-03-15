@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter_clean_architecture_example/src/core/error/failure.dart';
+import 'package:flutter_clean_architecture_example/core/error/failure.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/usecases/create_user.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/usecases/get_users.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/presentation/bloc/users_bloc.dart';

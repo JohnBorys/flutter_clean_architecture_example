@@ -2,7 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture_example/src/core/utils/typedef.dart';
+import 'package:flutter_clean_architecture_example/core/utils/typedef.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/entity/user.dart';
 
 @immutable
