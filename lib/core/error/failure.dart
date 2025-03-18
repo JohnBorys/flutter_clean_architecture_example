@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'exceptions.dart';
+import 'package:flutter_clean_architecture_example/core/error/exceptions.dart';
 
 abstract class Failure extends Equatable {
   const Failure({
@@ -23,7 +23,7 @@ class ApiFailure extends Failure {
     required super.statusCode,
   });
 
-  factory ApiFailure.fromException(final ApiException exception) =>
+  factory ApiFailure.fromException(ApiException exception) =>
       ApiFailure(message: exception.message, statusCode: exception.statusCode);
 }
 

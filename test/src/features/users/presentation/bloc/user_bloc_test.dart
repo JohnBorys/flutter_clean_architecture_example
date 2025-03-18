@@ -14,7 +14,7 @@ class MockGetUsers extends Mock implements GetUsers {}
 void main() {
   late CreateUser createUser;
   late GetUsers getUsers;
-  late UserBloc bloc;
+  late UsersBloc bloc;
 
   const tCreateUserParams = CreateUserParams.empty();
   const tApiFailure = ApiFailure(message: 'message', statusCode: 400);
@@ -22,7 +22,7 @@ void main() {
   setUp(() {
     createUser = MockCreateUser();
     getUsers = MockGetUsers();
-    bloc = UserBloc(createUser: createUser, getUsers: getUsers);
+    bloc = UsersBloc(createUser: createUser, getUsers: getUsers);
     registerFallbackValue(tCreateUserParams);
   });
 
@@ -33,7 +33,7 @@ void main() {
   });
 
   group('createUser', () {
-    blocTest<UserBloc, UserState>(
+    blocTest<UsersBloc, UsersState>(
       'should emit [CreatingUser, UserCreated] when successful.',
       build: () {
         when(() => createUser(any()))
@@ -44,8 +44,8 @@ void main() {
         createdAt: tCreateUserParams.createdAt,
         name: tCreateUserParams.name,
         avatar: tCreateUserParams.avatar,
-      )),
-      expect: () => const <UserState>[
+      ),),
+      expect: () => const <UsersState>[
         CreatingUser(),
         UserCreated(),
       ],
@@ -55,7 +55,7 @@ void main() {
       },
     );
 
-    blocTest<UserBloc, UserState>(
+    blocTest<UsersBloc, UsersState>(
       'should emit [CreatingUser, CreateUserFailure] when unsuccessful.',
       build: () {
         when(() => createUser(any()))
@@ -66,7 +66,7 @@ void main() {
         createdAt: tCreateUserParams.createdAt,
         name: tCreateUserParams.name,
         avatar: tCreateUserParams.avatar,
-      )),
+      ),),
       expect: () => [
         const CreatingUser(),
         CreateUserFailure(tApiFailure.errorMessage),
@@ -79,14 +79,14 @@ void main() {
   });
 
   group('getUsers', () {
-    blocTest<UserBloc, UserState>(
+    blocTest<UsersBloc, UsersState>(
       'should emit [GettingUsers, UsersLoaded] when successful.',
       build: () {
         when(() => getUsers()).thenAnswer((_) async => const Right([]));
         return bloc;
       },
-      act: (bloc) => bloc.add(GetUsersEvent()),
-      expect: () => const <UserState>[
+      act: (bloc) => bloc.add(const GetUsersEvent()),
+      expect: () => const <UsersState>[
         GettingUsers(),
         UsersLoaded([]),
       ],
@@ -96,13 +96,13 @@ void main() {
       },
     );
 
-    blocTest<UserBloc, UserState>(
+    blocTest<UsersBloc, UsersState>(
       'should emit [GettingUsers, GetUsersFailure] when unsuccessful.',
       build: () {
         when(() => getUsers()).thenAnswer((_) async => const Left(tApiFailure));
         return bloc;
       },
-      act: (bloc) => bloc.add(GetUsersEvent()),
+      act: (bloc) => bloc.add(const GetUsersEvent()),
       expect: () => [
         const GettingUsers(),
         GetUsersFailure(tApiFailure.errorMessage),

@@ -8,9 +8,9 @@ import 'package:http/http.dart' as http;
 
 abstract class UsersRemoteDataSource {
   Future<void> createUser({
-    required final String createdAt,
-    required final String name,
-    required final String avatar,
+    required String createdAt,
+    required String name,
+    required String avatar,
   });
 
   Future<List<UserModel>> getUsers();
@@ -26,9 +26,9 @@ base class UsersRemoteDataSourceImpl implements UsersRemoteDataSource {
 
   @override
   Future<void> createUser({
-    required final String createdAt,
-    required final String name,
-    required final String avatar,
+    required String createdAt,
+    required String name,
+    required String avatar,
   }) async {
     final response = await _postRequest(
       endpoint: kCreateUserEndpoint,
@@ -44,30 +44,31 @@ base class UsersRemoteDataSourceImpl implements UsersRemoteDataSource {
 
     _handleResponse(response);
 
-    final List<dynamic> decodedBody =
-        jsonDecode(response.body) as List<dynamic>;
+    final decodedBody = jsonDecode(response.body) as List<dynamic>;
     return decodedBody
         .map((userData) => UserModel.fromMap(userData as DataMap))
         .toList();
   }
 
   Future<http.Response> _postRequest({
-    required final String endpoint,
-    required final Map<String, dynamic> body,
+    required String endpoint,
+    required Map<String, dynamic> body,
   }) async {
     try {
       return await client.post(
         Uri.https(kBaseUrl, endpoint),
         body: jsonEncode(body),
+        headers: {'Content-Type': 'application/json'},
       );
     } catch (e) {
       throw ApiException(message: e.toString(), statusCode: 505);
     }
   }
 
-  Future<http.Response> _getRequest({required final String endpoint}) async {
+  Future<http.Response> _getRequest({required String endpoint}) async {
     try {
-      return await client.get(Uri.https(kBaseUrl, endpoint));
+      final uri = Uri.https(kBaseUrl, endpoint);
+      return await client.get(uri);
     } catch (e) {
       throw ApiException(message: e.toString(), statusCode: 505);
     }
@@ -76,7 +77,9 @@ base class UsersRemoteDataSourceImpl implements UsersRemoteDataSource {
   void _handleResponse(http.Response response) {
     if (response.statusCode != 200 && response.statusCode != 201) {
       throw ApiException(
-          message: response.body, statusCode: response.statusCode);
+        message: response.body,
+        statusCode: response.statusCode,
+      );
     }
   }
 }

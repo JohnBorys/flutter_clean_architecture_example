@@ -4,8 +4,7 @@ import 'package:flutter_clean_architecture_example/src/features/users/domain/ent
 import 'package:flutter_clean_architecture_example/src/features/users/domain/repositories/users_repository.dart';
 
 class GetUsers extends UsecasesWithoutParams<List<User>> {
-  const GetUsers({required final UsersRepository repository})
-      : _repository = repository;
+  GetUsers({required UsersRepository repository}) : _repository = repository;
 
   final UsersRepository _repository;
 

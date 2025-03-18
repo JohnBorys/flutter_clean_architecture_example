@@ -5,9 +5,9 @@ abstract class UsersRepository {
   const UsersRepository();
 
   ResultVoid createUser({
-    required final String createdAt,
-    required final String name,
-    required final String avatar,
+    required String createdAt,
+    required String name,
+    required String avatar,
   });
   FutureResult<List<User>> getUsers();
 }

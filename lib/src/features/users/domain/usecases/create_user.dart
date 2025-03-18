@@ -3,16 +3,16 @@ import 'package:flutter_clean_architecture_example/core/usecases/usecases.dart';
 import 'package:flutter_clean_architecture_example/core/utils/typedef.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/repositories/users_repository.dart';
 
-class CreateUser extends UsecasesWithParams<void, CreateUserParams> {
-  const CreateUser({required final UsersRepository repository})
+class CreateUser implements UsecasesWithParams<void, CreateUserParams> {
+  const CreateUser({required UsersRepository repository})
       : _repository = repository;
 
   final UsersRepository _repository;
 
   ResultVoid createUser({
-    required final String createdAt,
-    required final String name,
-    required final String avatar,
+    required String createdAt,
+    required String name,
+    required String avatar,
   }) async =>
       _repository.createUser(
         createdAt: createdAt,
@@ -36,11 +36,11 @@ class CreateUserParams extends Equatable {
     required this.avatar,
   });
 
+  const CreateUserParams.empty() : this(createdAt: '', name: '', avatar: '');
+
   final String createdAt;
   final String name;
   final String avatar;
-
-  const CreateUserParams.empty() : this(createdAt: '', name: '', avatar: '');
 
   @override
   List<Object?> get props => [createdAt, name, avatar];

@@ -20,9 +20,9 @@ final class UserCreated extends UsersState {
 }
 
 final class CreateUserFailure extends UsersState {
-  final String error;
 
   const CreateUserFailure(this.error);
+  final String error;
 
   @override
   List<Object> get props => [error];
@@ -33,18 +33,18 @@ final class GettingUsers extends UsersState {
 }
 
 final class UsersLoaded extends UsersState {
-  final List<User> users;
 
   const UsersLoaded(this.users);
+  final List<User> users;
 
   @override
   List<Object> get props => users.map((user) => user.id).toList();
 }
 
 final class GetUsersFailure extends UsersState {
-  final String error;
 
   const GetUsersFailure(this.error);
+  final String error;
 
   @override
   List<Object> get props => [error];

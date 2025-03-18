@@ -1,50 +1,50 @@
 part of 'users_bloc.dart';
 
-sealed class UserState extends Equatable {
-  const UserState();
+sealed class UsersState extends Equatable {
+  const UsersState();
 
   @override
   List<Object> get props => [];
 }
 
-final class UserInitial extends UserState {
+final class UserInitial extends UsersState {
   const UserInitial();
 }
 
-final class CreatingUser extends UserState {
+final class CreatingUser extends UsersState {
   const CreatingUser();
 }
 
-final class UserCreated extends UserState {
+final class UserCreated extends UsersState {
   const UserCreated();
 }
 
-final class CreateUserFailure extends UserState {
-  final String error;
+final class CreateUserFailure extends UsersState {
 
   const CreateUserFailure(this.error);
+  final String error;
 
   @override
   List<Object> get props => [error];
 }
 
-final class GettingUsers extends UserState {
+final class GettingUsers extends UsersState {
   const GettingUsers();
 }
 
-final class UsersLoaded extends UserState {
-  final List<User> users;
+final class UsersLoaded extends UsersState {
 
   const UsersLoaded(this.users);
+  final List<User> users;
 
   @override
   List<Object> get props => users.map((user) => user.id).toList();
 }
 
-final class GetUsersFailure extends UserState {
-  final String error;
+final class GetUsersFailure extends UsersState {
 
   const GetUsersFailure(this.error);
+  final String error;
 
   @override
   List<Object> get props => [error];

@@ -1,14 +1,14 @@
 import 'dart:convert';
 
+import 'package:flutter_clean_architecture_example/core/utils/typedef.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/data/models/user_model.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/entity/user.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_clean_architecture_example/core/utils/typedef.dart';
 
 import '../../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  const UserModel tModel = UserModel.empty();
+  const tModel = UserModel.empty();
 
   test('Should be a subclass of [User] entity', () {
     expect(tModel, isA<User>());
@@ -46,11 +46,11 @@ void main() {
       final result = tModel.toJson();
 
       final tJson = jsonEncode({
-        "createdAt": "2025-03-02T20:29:10.104Z",
-        "name": "Silvia Wunsch",
-        "avatar":
-            "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1091.jpg",
-        "id": "1"
+        'createdAt': '2025-03-02T20:29:10.104Z',
+        'name': 'Silvia Wunsch',
+        'avatar':
+            'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1091.jpg',
+        'id': '1',
       });
 
       expect(result, tJson);

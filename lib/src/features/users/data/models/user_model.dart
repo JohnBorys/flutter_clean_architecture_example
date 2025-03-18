@@ -16,14 +16,15 @@ final class UserModel extends User {
 
   const UserModel.empty()
       : this(
-            createdAt: "2025-03-02T20:29:10.104Z",
-            name: "Silvia Wunsch",
-            avatar:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1091.jpg",
-            id: "1");
+          createdAt: '2025-03-02T20:29:10.104Z',
+          name: 'Silvia Wunsch',
+          avatar:
+              'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1091.jpg',
+          id: '1',
+        );
 
   factory UserModel.fromJson(String source) =>
-      UserModel.fromMap(jsonDecode(source));
+      UserModel.fromMap(jsonDecode(source) as DataMap);
 
   UserModel.fromMap(DataMap map)
       : this(
@@ -34,10 +35,10 @@ final class UserModel extends User {
         );
 
   UserModel copyWith({
-    final String? id,
-    final String? name,
-    final String? avatar,
-    final String? createdAt,
+    String? id,
+    String? name,
+    String? avatar,
+    String? createdAt,
   }) {
     return UserModel(
       id: id ?? this.id,

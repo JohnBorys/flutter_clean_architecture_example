@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/repositories/users_repository.dart';
 import 'package:flutter_clean_architecture_example/src/features/users/domain/usecases/create_user.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 class MockUsersRepository extends Mock implements UsersRepository {}
 

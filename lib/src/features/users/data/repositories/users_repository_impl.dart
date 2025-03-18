@@ -7,9 +7,9 @@ import 'package:flutter_clean_architecture_example/src/features/users/domain/ent
 import 'package:flutter_clean_architecture_example/src/features/users/domain/repositories/users_repository.dart';
 
 base class UsersRepositoryImpl extends UsersRepository {
-  const UsersRepositoryImpl(
-      {required final UsersRemoteDataSource remoteDataSource})
-      : _remoteDataSource = remoteDataSource;
+  const UsersRepositoryImpl({
+    required UsersRemoteDataSource remoteDataSource,
+  }) : _remoteDataSource = remoteDataSource;
 
   final UsersRemoteDataSource _remoteDataSource;
 
@@ -21,7 +21,10 @@ base class UsersRepositoryImpl extends UsersRepository {
   }) async {
     try {
       await _remoteDataSource.createUser(
-          createdAt: createdAt, name: name, avatar: avatar);
+        createdAt: createdAt,
+        name: name,
+        avatar: avatar,
+      );
       return const Right(null);
     } on ApiException catch (e) {
       return Left(ApiFailure.fromException(e));
